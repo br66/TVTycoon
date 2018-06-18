@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 110040835}
   - component: {fileID: 110040836}
   m_Layer: 0
-  m_Name: FakeOffice
+  m_Name: Placer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

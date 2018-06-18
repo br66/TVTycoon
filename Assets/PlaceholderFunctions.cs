@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class PlaceholderFunctions : MonoBehaviour {
 
@@ -33,6 +34,7 @@ public class PlaceholderFunctions : MonoBehaviour {
         // change my position to that
         gameObject.transform.position = new Vector3(mouseX, mouseY);
 
+        #region for placing objects
         //raycast in all directions, find first objects that intersect, see if i'm right next to any of them
         Colliders = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Building")).ToList();
 
@@ -69,6 +71,13 @@ public class PlaceholderFunctions : MonoBehaviour {
             canAdd = false;
         else
             canAdd = true;
+
+        #endregion
+
+        if (Input.GetMouseButtonDown((int)PointerEventData.InputButton.Left) && canAdd == true)
+        {
+            Debug.Log("doof");
+        }
 
     }
 
