@@ -48,26 +48,35 @@ namespace Vision
             // New day
             ticks = 0;
             Day++;
+            NewDay();
 
             if (Day < 30) return;
 
             //New Month
             Day = 1;
             Month++;
+            NewMonth();
 
             #region The Quarter stuff
-            if (Month > 0 && Month < 4) Quarter = 1;
-            if (Month > 4 && Month < 7) Quarter = 2;
-            if (Month > 7 && Month < 10) Quarter = 3;
-            if (Month > 10 && Month < 13) Quarter = 4;
+            if ((Month > 0 && Month < 4) && Quarter != 1) { Quarter = 1; NewQuarter(); }
+            if ((Month > 4 && Month < 7) && Quarter != 2) { Quarter = 2; NewQuarter(); }
+            if ((Month > 7 && Month < 10) && Quarter != 3) { Quarter = 3; NewQuarter(); }
+            if ((Month > 10 && Month < 13) && Quarter != 4) { Quarter = 4; NewQuarter(); }
             #endregion
-
-            if (Month < 12) return;
 
             // New Year
             Month = 1;
             Year++;
+            NewYear();
         }
+
+        void NewDay() { }
+
+        void NewMonth() { }
+
+        void NewQuarter() { }
+
+        void NewYear() { }
 
         #region when you shift the bits, you're compressing the number?
         UInt32 compressedDate;
